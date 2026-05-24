@@ -73,7 +73,7 @@ export default function Home() {
                                 alt="Kristina"
                                 width={450}
                                 height={550}
-                                className="rounded-[30px] object-cover h-[500px] w-auto"
+                                className="rounded-[30px] object-cover h-[500px] w-auto" // Добавили w-auto
                                 priority
                             />
                         </div>
@@ -130,7 +130,7 @@ export default function Home() {
                 </section>
 
                 {/* ПОРТФОЛИО — Идеально выровненная адаптивная Bento-сетка */}
-                <section id="portfolio" className="mt-44 space-y-44">
+                <section id="portfolio" className="mt-44 space-y-32">
 
                     {/* ПРОЕКТ 1: Luck to Do */}
                     <div className="space-y-10">
@@ -145,16 +145,35 @@ export default function Home() {
                             </Link>
                         </div>
 
+                        {/* Добавлены фиксированные адаптивные высоты для мобилок и sizes */}
                         <div className="grid md:grid-cols-12 gap-4">
-                            <div className="md:col-span-8 overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] h-[400px] relative group">
-                                <Image src="/ToDo/1.png" alt="Todo Main" fill className="object-cover object-top group-hover:scale-[1.01] transition duration-700" />
+                            <div className="md:col-span-8 overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] h-[250px] sm:h-[350px] md:h-[400px] relative group">
+                                <Image
+                                    src="/ToDo/1.png"
+                                    alt="Todo Main"
+                                    fill
+                                    sizes="(max-w-768px) 100vw, 66vw"
+                                    className="object-cover object-top group-hover:scale-[1.02] transition duration-700"
+                                />
                             </div>
-                            <div className="md:col-span-4 overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] h-[400px] relative group">
-                                <Image src="/ToDo/2.png" alt="Todo Mobile" fill className="object-cover object-top group-hover:scale-[1.01] transition duration-700" />
+                            <div className="md:col-span-4 overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] h-[250px] sm:h-[350px] md:h-[400px] relative group">
+                                <Image
+                                    src="/ToDo/2.png"
+                                    alt="Todo Mobile"
+                                    fill
+                                    sizes="(max-w-768px) 100vw, 33vw"
+                                    className="object-cover object-top group-hover:scale-[1.02] transition duration-700"
+                                />
                             </div>
                             {todoImages.slice(2, 5).map((img) => (
-                                <div key={img} className="md:col-span-4 overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] h-[240px] relative group">
-                                    <Image src={`/ToDo/${img}.png`} alt={`Todo ${img}`} fill className="object-cover object-center group-hover:scale-[1.03] transition duration-500" />
+                                <div key={img} className="md:col-span-4 overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] h-[200px] sm:h-[240px] relative group">
+                                    <Image
+                                        src={`/ToDo/${img}.png`}
+                                        alt={`Todo ${img}`}
+                                        fill
+                                        sizes="(max-w-768px) 100vw, 33vw"
+                                        className="object-cover object-center group-hover:scale-[1.03] transition duration-500"
+                                    />
                                 </div>
                             ))}
                         </div>
@@ -173,15 +192,15 @@ export default function Home() {
                             </Link>
                         </div>
 
-                        {/* Добавлен relative и object-cover для корректного отображения картинок */}
+                        {/* Заменили фиксированный h-[340px] на адаптивный, чтобы на мобильных высота не была 0, и добавили sizes */}
                         <div className="grid md:grid-cols-2 gap-6">
                             {spaceImages.map((img) => (
-                                /* Убрали h-[340px], добавили aspect-video (соотношение 16:9) */
-                                <div key={img} className="overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] aspect-video relative group">
+                                <div key={img} className="overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] h-[200px] sm:h-[280px] md:h-[340px] relative group">
                                     <Image
                                         src={`/Space/${img}.jpeg`}
                                         alt={`Space ${img}`}
                                         fill
+                                        sizes="(max-w-768px) 100vw, 50vw"
                                         className="object-cover object-top group-hover:scale-[1.02] transition duration-700"
                                     />
                                 </div>

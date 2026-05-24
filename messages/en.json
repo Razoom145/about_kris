@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "about": "About",
+    "product": "Product",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Fullstack Developer",
+    "title": "Building modern websites with style.",
+    "description": "I am Kristina, a 19-year-old developer from Saint Petersburg. I create modern websites and web applications using Next.js, TypeScript, PostgreSQL and Tailwind CSS.",
+    "portfolioButton": "View Portfolio",
+    "contactButton": "Contact Me"
+  },
+  "products": {
+    "title": "Products",
+    "items": {
+      "landing": {
+        "title": "Landing Page",
+        "description": "Fast and stylish landing pages for brands, creators and small businesses."
+      },
+      "webapp": {
+        "title": "Web App",
+        "description": "Fullstack applications with authentication, dashboards and databases."
+      },
+      "design": {
+        "title": "Custom Design",
+        "description": "Unique UI with animations, modern layouts and responsive design."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "portfolio": {
+    "todo": {
+      "title": "Todo Project",
+      "description": "Interactive notebook-style todo application with scrapbook aesthetic.",
+      "button": "Open Project"
+    },
+    "space": {
+      "title": "Space Project",
+      "description": "Futuristic space-themed website with immersive visuals and animations.",
+      "button": "Open Project"
+    }
+  },
+  "contact": {
+    "title": "Let’s work together.",
+    "description": "Open for freelance projects, collaborations and creative startup ideas.",
+    "threads": "Threads",
+    "instagram": "Instagram",
+    "boosty": "Boosty",
+    "kwork": "Kwork"
+  }
+}

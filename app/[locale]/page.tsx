@@ -19,6 +19,7 @@ export default function Home() {
     const tSkills = useTranslations("skills");
     const tPortfolio = useTranslations("portfolio");
     const tContact = useTranslations("contact");
+    const tCertificates = useTranslations("certificates");
 
     return (
         <main className="min-h-screen bg-[#0f172a] text-white px-6 md:px-12 py-8 overflow-hidden selection:bg-cyan-500/30">
@@ -80,25 +81,66 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* СЕРВИСЫ — Hover-эффекты приподнимания карточек */}
-                <section id="product" className="mt-44">
-                    <h2 className="text-4xl md:text-5xl font-black mb-10">{tProducts("title")}</h2>
+                {/* SERVICES & PRICING — Теперь с тарифами! */}
+                <section id="product" className="mt-44 relative">
+                    {/* Мягкий blur за заголовком */}
+                    <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 blur-[150px] pointer-events-none" />
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-100 mb-16 text-center sm:text-left">
+                        {tProducts("title")}
+                    </h2>
+
+                    <div className="grid md:grid-cols-3 gap-8 relative z-10">
                         {[
-                            { icon: "⚡", key: "landing" },
-                            { icon: "🛒", key: "webapp" },
-                            { icon: "🎨", key: "design" }
+                            { icon: "⚡", key: "landing", color: "from-cyan-500 to-blue-500" },
+                            { icon: "🛒", key: "webapp", color: "from-blue-500 to-indigo-500" },
+                            { icon: "🎨", key: "design", color: "from-indigo-500 to-cyan-500" }
                         ].map((item) => (
-                            <div key={item.key} className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:-translate-y-2 hover:border-white/20 transition-all duration-300 shadow-xl flex flex-col justify-between">
-                                <div>
-                                    <div className="text-5xl mb-6">{item.icon}</div>
-                                    <h3 className="text-2xl font-bold mb-4">{tProducts(`items.${item.key}.title`)}</h3>
-                                    <p className="text-gray-300 leading-7 font-light">{tProducts(`items.${item.key}.description`)}</p>
+                            <div key={item.key} className="bg-gradient-to-b from-[#0b0f19] to-[#030712] border border-white/[0.05] rounded-3xl p-8 hover:-translate-y-2 hover:border-white/10 transition-all duration-300 shadow-xl flex flex-col group">
+                                {/* Иконка и заголовок */}
+                                <div className="flex items-center gap-5 mb-8">
+                                    <div className={`text-4xl bg-neutral-900 border border-white/5 w-16 h-16 flex items-center justify-center rounded-2xl`}>{item.icon}</div>
+                                    <h3 className="text-2xl font-bold text-neutral-100">{tProducts(`items.${item.key}.title`)}</h3>
                                 </div>
+
+                                {/* Цена */}
+                                <div className="mb-6 flex items-baseline gap-1.5">
+                                    <span className="text-4xl font-black bg-gradient-to-r from-neutral-50 via-neutral-200 to-neutral-400 bg-clip-text text-transparent">{tProducts(`items.${item.key}.price`).split('(')[0].trim()}</span>
+                                    <span className="text-neutral-500 text-sm font-light">
+                    {tProducts(`items.${item.key}.price`).includes('(') ? '(' + tProducts(`items.${item.key}.price`).split('(')[1] : ''}
+                  </span>
+                                </div>
+
+                                {/* Описание */}
+                                <p className="text-neutral-400 text-base leading-relaxed font-light mb-8 flex-grow">
+                                    {tProducts(`items.${item.key}.description`)}
+                                </p>
+
+                                {/* Список того, что входит (features) */}
+                                <ul className="space-y-3 mb-10 border-t border-white/[0.03] pt-8 text-neutral-300 font-light text-sm">
+                                    {/* useTranslations автоматически обрабатывает списки из json! */}
+                                    {tProducts.raw(`items.${item.key}.features`).map((feature: string, index: number) => (
+                                        <li key={index} className="flex items-start gap-3">
+                                            {/* Кастомная галочка в цвет градиента */}
+                                            <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 bg-gradient-to-r ${item.color} rounded-full p-1 text-black`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                {/* Кнопка действия */}
+                                <Link href="#contact" className="w-full text-center bg-cyan-500 text-black font-bold px-6 py-4 rounded-xl hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/10">
+                                    {tProducts("orderButton")}
+                                </Link>
                             </div>
                         ))}
                     </div>
+
+                    <p className="text-neutral-500 text-sm mt-12 text-center w-full max-w-xl mx-auto font-light">
+                        {tProducts("contactSupport")}
+                    </p>
                 </section>
 
                 {/* ТЕХНОЛОГИИ — Исправлен скролл через CSS-инжекцию */}
@@ -205,6 +247,76 @@ export default function Home() {
                                     />
                                 </div>
                             ))}
+                        </div>
+                    </div>
+                </section>
+                {/* CERTIFICATES INFINITE SCROLL */}
+                <section id="certificates" className="mt-44 relative overflow-hidden py-10">
+                    {/* Размытые фоновые свечения по бокам, чтобы строка красиво уходила в прозрачность */}
+                    <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-[#030712] to-transparent z-20 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-[#030712] to-transparent z-20 pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/5 blur-[120px] pointer-events-none" />
+
+                    <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-100 mb-16 text-center sm:text-left px-4 md:px-0">
+                        {tCertificates("title")}
+                    </h2>
+
+                    {/* Главный контейнер для скролла */}
+                    <div className="flex w-full overflow-hidden relative z-10 group/scroll">
+                        <div className="flex gap-6 whitespace-nowrap animate-infinite-scroll group-hover/scroll:[animation-play-state:paused]">
+
+                            {/* Рендерим сертификаты первый раз и второй раз для бесконечного цикла */}
+                            {[...Array(2)].map((_, listIndex) => (
+                                <div key={listIndex} className="flex gap-6">
+                                    {[
+                                        { key: "cs50", issuer: "HarvardX", date: "2025", src: "/certificates/CS50x.png" , link: "https://cs50.harvard.edu/certificates/d61eecc5-71f2-4af7-883d-a32e3ff419e8" },
+                                        { key: "git", issuer: "IBM", date: "Dec 2025", src: "/certificates/Git.png" , link: "https://coursera.org/verify/1ECDHJR038NP" },
+                                        { key: "web", issuer: "IBM", date: "Dec 2025", src: "/certificates/web.png" , link: "https://coursera.org/verify/PMS2YYTK1XKR" },
+                                        { key: "eng", issuer: "IBM", date: "Dec 2025", src: "/certificates/eng.png" , link: "https://coursera.org/verify/WDTF6B3EPH6K" },
+                                        { key: "cloud", issuer: "IBM", date: "Aug 2025", src: "/certificates/cloud.png" , link: "https://coursera.org/verify/BJFIKK9WBRQR" }
+                                    ].map((cert, certIndex) => (
+                                        <div
+                                            key={`${listIndex}-${certIndex}`}
+                                            className="inline-block w-[300px] sm:w-[350px] bg-[#0b0f19]/80 backdrop-blur-md border border-white/[0.05] rounded-2xl p-6 hover:border-white/10 hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
+                                        >
+                                            {/* Тот самый фоновый сертификат */}
+                                            <div
+                                                className="absolute inset-0 bg-cover bg-center opacity-[0.06] group-hover:opacity-[0.15] group-hover:scale-105 transition-all duration-500 pointer-events-none mix-blend-luminosity"
+                                                style={{ backgroundImage: `url('${cert.src}')` }}
+                                            />
+
+                                            {/* Контент карточки (relative z-10 чтобы быть ПОВЕРХ фона) */}
+                                            <div className="relative z-10">
+                                                {/* Верхняя панель */}
+                                                <div className="flex justify-between items-center mb-4">
+                                    <span className="text-[10px] font-semibold tracking-wider uppercase text-cyan-400 px-2 py-0.5 bg-cyan-500/10 rounded">
+                                        {cert.issuer}
+                                    </span>
+                                                    <span className="text-xs text-neutral-500 font-light">{cert.date}</span>
+                                                </div>
+
+                                                {/* Название */}
+                                                <h3 className="text-base font-bold text-neutral-200 leading-snug mb-5 whitespace-normal group-hover:text-white transition-colors">
+                                                    {tCertificates(`items.${cert.key}`)}
+                                                </h3>
+                                            </div>
+
+                                            {/* Ссылка на верификацию */}
+                                            <Link
+                                                href={cert.link}
+                                                target="_blank"
+                                                className="inline-flex items-center text-xs font-medium text-neutral-400 hover:text-white transition-colors group/link pt-4 border-t border-white/[0.03] relative z-10"
+                                            >
+                                                {tCertificates("view")}
+                                                <svg className="w-3 h-3 ml-1 translate-y-[0.5px] transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                                </svg>
+                                            </Link>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+
                         </div>
                     </div>
                 </section>

@@ -1,55 +1,93 @@
 {
   "nav": {
     "about": "About",
-    "product": "Product",
+    "product": "Services",
     "portfolio": "Portfolio",
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Fullstack Developer",
-    "title": "Building modern websites with style.",
-    "description": "I am Kristina, a 19-year-old developer from Saint Petersburg. I create modern websites and web applications using Next.js, TypeScript, PostgreSQL and Tailwind CSS.",
+    "badge": "Available for Freelance Projects",
+    "title": "Building modern, snappy web apps with style.",
+    "description": "Hi, I'm Kristina. I'm a 19-year-old self-taught full-stack developer based in Saint Petersburg. I build modern web applications using Next.js, TypeScript, PostgreSQL, and Tailwind CSS.",
     "portfolioButton": "View Portfolio",
-    "contactButton": "Contact Me"
+    "contactButton": "Let's Talk"
   },
   "products": {
-    "title": "Products",
+    "title": "Services & Pricing",
+    "orderButton": "Order this plan",
+    "contactSupport": "Or DM me to discuss your custom project",
     "items": {
       "landing": {
-        "title": "Landing Page",
-        "description": "Fast and stylish landing pages for brands, creators and small businesses."
+        "title": "Landing Pages",
+        "price": "Starts from $150",
+        "description": "High-conversion landing pages with a unique, responsive design that looks stunning on every device.",
+        "features": [
+          "Unique Tailwind CSS design",
+          "Fully responsive layout",
+          "SEO optimization",
+          "Up to 5 pages included",
+          "Contact form integration"
+        ]
       },
       "webapp": {
-        "title": "Web App",
-        "description": "Fullstack applications with authentication, dashboards and databases."
+        "title": "Full-Stack Web Apps",
+        "price": "Starts from $400",
+        "description": "Interactive web services and dashboards built with Next.js, TypeScript, and robust database architecture.",
+        "features": [
+          "Next.js (App Router)",
+          "Secure user authentication",
+          "PostgreSQL & Prisma ORM",
+          "Dynamic API routes",
+          "Clean, optimized code"
+        ]
       },
       "design": {
-        "title": "Custom Design",
-        "description": "Unique UI with animations, modern layouts and responsive design."
+        "title": "Frontend Development",
+        "price": "Starts from $100",
+        "description": "Converting your Figma designs into clean, fast, and fully responsive code using Next.js and Tailwind CSS.",
+        "features": [
+          "Pixel-perfect implementation",
+          "Figma to React conversion",
+          "Tailwind CSS styling",
+          "Interactive UI components",
+          "Clean TypeScript code"
+        ]
       }
     }
   },
   "skills": {
-    "title": "Skills"
+    "title": "Tech Stack"
   },
   "portfolio": {
     "todo": {
-      "title": "Todo Project",
-      "description": "Interactive notebook-style todo application with scrapbook aesthetic.",
-      "button": "Open Project"
+      "title": "Luck to Do",
+      "description": "A cozy, paper-style full-stack task manager. Features smart optimistic caching (SWR), lazy background deletion, and data isolation.",
+      "button": "Live Demo"
     },
     "space": {
-      "title": "Space Project",
-      "description": "Futuristic space-themed website with immersive visuals and animations.",
-      "button": "Open Project"
+      "title": "Space Tourism Service",
+      "description": "An interactive, multi-page application displaying beautiful dynamic space data. Smooth routing and perfect layout execution.",
+      "button": "Live Demo"
     }
   },
   "contact": {
-    "title": "Let’s work together.",
-    "description": "Open for freelance projects, collaborations and creative startup ideas.",
+    "title": "Let's build something awesome together",
+    "description": "Available for freelance projects, collaborations, or creative startup ideas.",
     "threads": "Threads",
     "instagram": "Instagram",
     "boosty": "Boosty",
     "kwork": "Kwork"
+  },
+  "certificates": {
+    "title": "Certifications",
+    "issuedBy": "Issued by",
+    "view": "Verify Certificate",
+    "items": {
+      "cs50": "CS50x: Introduction to Computer Science",
+      "git": "Getting Started with Git and GitHub",
+      "web": "Introduction to HTML, CSS, & JavaScript",
+      "cloud": "Introduction to Cloud Computing",
+      "eng": "Introduction to Software Engineering"
+    }
   }
 }

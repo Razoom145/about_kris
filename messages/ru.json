@@ -13,19 +13,45 @@
     "contactButton": "Связаться"
   },
   "products": {
-    "title": "Услуги",
+    "title": "Услуги и Тарифы",
+    "orderButton": "Заказать этот тариф",
+    "contactSupport": "Или напишите в ЛС, чтобы обсудить ваш проект",
     "items": {
       "landing": {
-        "title": "Лендинг",
-        "description": "Быстрые и стильные лендинги для брендов, креаторов и малого бизнеса."
+        "title": "Лендинги",
+        "price": "От $150 (~13 500 руб.)",
+        "description": "Конверсионные лендинги с уникальным, адаптивным дизайном, который выглядит круто на любом устройстве.",
+        "features": [
+          "Уникальный дизайн на Tailwind",
+          "Полная адаптивность",
+          "SEO-оптимизация",
+          "До 5 страниц включено",
+          "Интеграция контактной формы"
+        ]
       },
       "webapp": {
-        "title": "Веб-приложение",
-        "description": "Fullstack приложения с авторизацией, дашбордами и базами данных."
+        "title": "Full-Stack Приложения",
+        "price": "От $400 (~36 000 руб.)",
+        "description": "Интерактивные веб-сервисы и админ-панели на Next.js, TypeScript и с надежной архитектурой базы данных.",
+        "features": [
+          "Next.js (App Router)",
+          "Надежная авторизация пользователей",
+          "PostgreSQL & Prisma ORM",
+          "Динамические API роуты",
+          "Чистый, оптимизированный код"
+        ]
       },
       "design": {
-        "title": "Кастомный Дизайн",
-        "description": "Уникальный UI с анимациями, современными макетами и адаптивным дизайном."
+        "title": "Фронтенд и Верстка",
+        "price": "От $100 (~9 000 руб.)",
+        "description": "Перенос вашего готового дизайна из Figma в чистый, быстрый и адаптивный код на Next.js и Tailwind CSS.",
+        "features": [
+          "Верстка пиксель-в-пиксель",
+          "Интеграция ваших макетов Figma",
+          "Настройка тем Tailwind CSS",
+          "Интерактивные компоненты",
+          "Чистый React / TypeScript код"
+        ]
       }
     }
   },
@@ -51,5 +77,17 @@
     "instagram": "Instagram",
     "boosty": "Boosty",
     "kwork": "Kwork"
+  },
+  "certificates": {
+    "title": "Сертификаты",
+    "issuedBy": "Выдан",
+    "view": "Проверить сертификат",
+    "items": {
+      "cs50": "CS50x: Введение в компьютерные науки",
+      "git": "Getting Started with Git and GitHub",
+      "web": "Introduction to HTML, CSS, & JavaScript",
+      "cloud": "Introduction to Cloud Computing",
+      "eng": "Introduction to Software Engineering"
+    }
   }
 }

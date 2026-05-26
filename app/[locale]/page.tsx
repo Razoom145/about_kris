@@ -22,7 +22,7 @@ export default function Home() {
     const tCertificates = useTranslations("certificates");
 
     return (
-        <main className="min-h-screen bg-[#0f172a] text-white px-6 md:px-12 py-8 overflow-hidden selection:bg-cyan-500/30">
+        <main className="min-h-screen bg-[#0f172a] text-white px-6 md:px-12 py-8 overflow-y-auto selection:bg-cyan-500/30">
             <div className="max-w-7xl mx-auto">
 
                 {/* НАВИГАЦИЯ — Сбалансированная и адаптивная */}
@@ -105,7 +105,7 @@ export default function Home() {
                                         <img
                                             src={`/picture/${item.src}`} // Путь к картинке. Наклонная черта нужна, если файлы лежат в папке public
                                             alt={item.key}
-                                            className="w-8 h-8 object-contain" // Задаем размеры иконке, чтобы она не растягивалась
+                                            className="w-16 h-16 object-contain" // Задаем размеры иконке, чтобы она не растягивалась
                                         />
 
                                     </div>

@@ -92,14 +92,23 @@ export default function Home() {
 
                     <div className="grid md:grid-cols-3 gap-8 relative z-10">
                         {[
-                            { icon: "⚡", key: "landing", color: "from-cyan-500 to-blue-500" },
-                            { icon: "🛒", key: "webapp", color: "from-blue-500 to-indigo-500" },
-                            { icon: "🎨", key: "design", color: "from-indigo-500 to-cyan-500" }
+                            { src: "landing.svg", key: "landing", color: "from-cyan-500 to-blue-500" },
+                            { src: "code.svg", key: "webapp", color: "from-blue-500 to-indigo-500" },
+                            { src: "picture.svg", key: "design", color: "from-indigo-500 to-cyan-500" }
                         ].map((item) => (
                             <div key={item.key} className="bg-gradient-to-b from-[#0b0f19] to-[#030712] border border-white/[0.05] rounded-3xl p-8 hover:-translate-y-2 hover:border-white/10 transition-all duration-300 shadow-xl flex flex-col group">
                                 {/* Иконка и заголовок */}
                                 <div className="flex items-center gap-5 mb-8">
-                                    <div className={`text-4xl bg-neutral-900 border border-white/5 w-16 h-16 flex items-center justify-center rounded-2xl`}>{item.icon}</div>
+                                    <div className="text-4xl bg-neutral-900 border border-white/5 w-16 h-16 flex items-center justify-center rounded-2xl">
+
+                                        {/* Вместо {item.src} пишем это: */}
+                                        <img
+                                            src={`/picture/${item.src}`} // Путь к картинке. Наклонная черта нужна, если файлы лежат в папке public
+                                            alt={item.key}
+                                            className="w-8 h-8 object-contain" // Задаем размеры иконке, чтобы она не растягивалась
+                                        />
+
+                                    </div>
                                     <h3 className="text-2xl font-bold text-neutral-100">{tProducts(`items.${item.key}.title`)}</h3>
                                 </div>
 

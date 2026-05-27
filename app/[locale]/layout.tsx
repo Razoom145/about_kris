@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
             <body className="min-h-full flex flex-col bg-[#0f172a]">
                 <NextIntlClientProvider messages={messages}>
                     {children}
+                    <Analytics />
                 </NextIntlClientProvider>
             </body>
         </html>

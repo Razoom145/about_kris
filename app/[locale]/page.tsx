@@ -267,7 +267,7 @@ export default function Home() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/5 blur-[120px] pointer-events-none" />
 
                     <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-100 mb-16 text-center sm:text-left px-4 md:px-0">
-                        {tCertificates("title")}
+                           {tCertificates("title")}
                     </h2>
 
                     {/* Главный контейнер для скролла */}

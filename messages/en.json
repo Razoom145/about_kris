@@ -59,6 +59,11 @@
     "title": "Tech Stack"
   },
   "portfolio": {
+    "gallery": {
+      "title": "Art Gallery",
+      "description": "A smooth and responsive bento gallery built with Next.js, Next-Intl, and Tailwind CSS. Features theme caching, custom seamless route transitions, and image preloading for maximum performance.",
+      "button": "View Gallery"
+    },
     "todo": {
       "title": "Luck to Do",
       "description": "A cozy, paper-style full-stack task manager. Features smart optimistic caching (SWR), lazy background deletion, and data isolation.",

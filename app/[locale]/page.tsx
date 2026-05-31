@@ -11,6 +11,7 @@ const skills = [
 
 const todoImages = [1, 2, 3, 4, 5, 6, 7, 8];
 const spaceImages = ["1_1", "2_2", "3_3", "4_4"];
+const galleryImages = ["3.1", "3.2", "3.3", "3.4"]
 
 export default function Home() {
     const tNav = useTranslations("nav");
@@ -182,6 +183,38 @@ export default function Home() {
 
                 {/* ПОРТФОЛИО — Идеально выровненная адаптивная Bento-сетка */}
                 <section id="portfolio" className="mt-44 space-y-32">
+                    {/* ПРОЕКТ 1: Арт-Галерея (ВСТАВЛЕНА ВПЕРЕД) */}
+                    <div className="space-y-10">
+                        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                            <div className="space-y-3">
+                                <h2 className="text-3xl md:text-5xl font-black tracking-tight">{tPortfolio("gallery.title")}</h2>
+                                <p className="text-neutral-400 max-w-2xl text-base leading-relaxed font-light">{tPortfolio("gallery.description")}</p>
+                            </div>
+                            <Link href="https://theartgallery.vercel.app/" className="inline-flex items-center justify-center border border-white/10 bg-white/5 text-sm font-medium px-5 py-3 rounded-xl hover:bg-white hover:text-black transition-all group/btn w-fit shadow-md">
+                                {tPortfolio("gallery.button")}
+                                <span className="inline-block translate-x-0 group-hover/btn:translate-x-1 transition-transform ml-1.5">→</span>
+                            </Link>
+                        </div>
+
+                        {/* Bento-сетка для скриншотов галереи */}
+                        {/* Сетка для скриншотов галереи — 2 столбика по 2 фото */}
+                        <div className="grid sm:grid-cols-2 gap-6">
+                            {galleryImages.slice(0, 4).map((img, index) => (
+                                <div
+                                    key={img}
+                                    className="overflow-hidden rounded-2xl border border-white/5 bg-[#0b0f19] h-[250px] sm:h-[300px] md:h-[380px] relative group"
+                                >
+                                    <Image
+                                        src={`/gallery/${img}.jpeg`}
+                                        alt={`Gallery Screen ${index + 1}`}
+                                        fill
+                                        sizes="(max-width: 640px) 100vw, 50vw"
+                                        className="object-cover object-top group-hover:scale-[1.03] transition duration-700"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
 
                     {/* ПРОЕКТ 1: Luck to Do */}
                     <div className="space-y-10">
